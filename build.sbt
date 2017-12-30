@@ -12,5 +12,6 @@ libraryDependencies ++= Seq(
     ExclusionRule("io.netty", "netty"),
     ExclusionRule("commons-net", "commons-net"),
     ExclusionRule("com.google.guava", "guava")
-  )
+  ),
+  "org.apache.spark" %% "spark-sql-kafka-0-10" % "2.2.1" exclude("org.apache.kafka", "kafka-clients")
 )
