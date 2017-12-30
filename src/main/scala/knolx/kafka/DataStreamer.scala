@@ -1,15 +1,16 @@
-package knolx
+package knolx.kafka
 
 import java.util.Properties
 
 import akka.actor.ActorSystem
 import knolx.Config.{bootstrapServer, topic}
+import knolx.KnolXLogger
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
 import org.apache.kafka.common.serialization.StringSerializer
 
-import scala.util.Random
-import scala.concurrent.duration.DurationInt
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration.DurationInt
+import scala.util.Random
 
 /**
   * Copyright Knoldus Software LLP. All rights reserved.

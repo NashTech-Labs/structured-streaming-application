@@ -1,4 +1,4 @@
-package knolx
+package knolx.spark
 
 import com.datastax.driver.core.{Cluster, Session}
 import knolx.Config.{cassandraHosts, keyspace}

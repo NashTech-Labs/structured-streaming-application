@@ -1,8 +1,9 @@
-package knolx
+package knolx.spark
 
 import com.datastax.driver.core.Cluster
-import knolx.CassandraForeachWriter.writeToCassandra
 import knolx.Config._
+import knolx.KnolXLogger
+import knolx.spark.CassandraForeachWriter.writeToCassandra
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions.{col, lit, sum}
 import org.apache.spark.sql.streaming.OutputMode
