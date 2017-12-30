@@ -6,10 +6,11 @@ import knolx.Config.{cassandraHosts, keyspace}
 /**
   * Copyright Knoldus Software LLP. All rights reserved.
   */
-object StructuredStreamingWordCount extends App {
+object StructuredStreamingWordCount extends App with KnolXLogger {
   val cluster = Cluster.builder.addContactPoints(cassandraHosts).build
   val session = cluster.newSession()
 
+  info("Creating Cassandra Keypsace and tables")
   session.execute(s"CREATE KEYSPACE IF NOT EXISTS $keyspace WITH " +
     "replication = {'class':'SimpleStrategy','replication_factor':1};")
 

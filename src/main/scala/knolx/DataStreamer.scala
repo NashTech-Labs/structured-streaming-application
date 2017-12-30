@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 /**
   * Copyright Knoldus Software LLP. All rights reserved.
   */
-object DataStreamer extends App {
+object DataStreamer extends App with KnolXLogger {
   val system = ActorSystem("DataStreamer")
   val props = new Properties()
   props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer)
@@ -25,6 +25,7 @@ object DataStreamer extends App {
 
   val someWords = List("about", "above", "after", "again", "against")
 
+  info("Streaming data into Kafka...")
   system.scheduler.schedule(0 seconds, 1 second) {
     Random.shuffle(someWords).headOption.foreach { word =>
       producer.send(new ProducerRecord[String, String](topic, word))
