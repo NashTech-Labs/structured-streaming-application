@@ -10,4 +10,5 @@ object Config {
   val keyspace = System.getenv("CASSANDRA_KEYSPACE")
   val sparkMaster = System.getenv("SPARK_MASTER")
   val sparkAppName = System.getenv("SPARK_APP_NAME")
+  val checkPointDir = System.getenv("CHECKPOINT_DIR")
 }

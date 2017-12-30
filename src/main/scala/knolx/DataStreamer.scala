@@ -26,7 +26,7 @@ object DataStreamer extends App with KnolXLogger {
   val someWords = List("about", "above", "after", "again", "against")
 
   info("Streaming data into Kafka...")
-  system.scheduler.schedule(0 seconds, 1 second) {
+  system.scheduler.schedule(0 seconds, 200 milliseconds) {
     Random.shuffle(someWords).headOption.foreach { word =>
       producer.send(new ProducerRecord[String, String](topic, word))
     }
