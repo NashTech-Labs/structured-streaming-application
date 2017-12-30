@@ -40,10 +40,10 @@ If this is your first time running SBT, you will be downloading the internet.
     sbt run
     Multiple main classes detected, select one to run:
         
-         [1] knolx.DataStreamer
-         [2] knolx.StructuredStreamingWordCount
+     [1] knolx.kafka.DataStreamer
+     [2] knolx.spark.StructuredStreamingWordCount
         
-        Enter number: 2
+    Enter number: 2
 
 2.Start the Kafka data feed
 In a second shell run:
@@ -52,8 +52,8 @@ In a second shell run:
     sbt run
     Multiple main classes detected, select one to run:
     
-     [1] knolx.DataStreamer
-     [2] knolx.StructuredStreamingWordCount
+     [1] knolx.kafka.DataStreamer
+     [2] knolx.spark.StructuredStreamingWordCount
     
     Enter number: 1
 
