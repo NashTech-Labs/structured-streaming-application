@@ -34,7 +34,17 @@ If this is your first time running SBT, you will be downloading the internet.
 
 ### Run
 #### From Command Line
-1.Start `Structured Streaming Application`
+1.Set Environment Variables. Eg,
+
+    BOOTSTRAP_SERVERS_CONFIG=localhost:9092
+    TOPIC=knolx
+    CASSANDRA_HOSTS=localhost
+    CASSANDRA_KEYSPACE=knolx
+    SPARK_MASTER=local
+    SPARK_APP_NAME=knolx
+    CHECKPOINT_DIR=/tmp/knolx
+
+2.Start `Structured Streaming Application`
 
     cd /path/to/structured-streaming-application
     sbt run
@@ -45,7 +55,7 @@ If this is your first time running SBT, you will be downloading the internet.
         
     Enter number: 2
 
-2.Start the Kafka data feed
+3.Start the Kafka data feed
 In a second shell run:
 
     cd /path/to/structured-streaming-application
