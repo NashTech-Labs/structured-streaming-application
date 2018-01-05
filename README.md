@@ -36,13 +36,13 @@ If this is your first time running SBT, you will be downloading the internet.
 #### From Command Line
 1.Set Environment Variables. Eg,
 
-    BOOTSTRAP_SERVERS_CONFIG=localhost:9092
-    TOPIC=knolx
-    CASSANDRA_HOSTS=localhost
-    CASSANDRA_KEYSPACE=knolx
-    SPARK_MASTER=local
-    SPARK_APP_NAME=knolx
-    CHECKPOINT_DIR=/tmp/knolx
+    export BOOTSTRAP_SERVERS_CONFIG="localhost:9092"
+    export TOPIC="knolx"
+    export CASSANDRA_HOSTS="localhost"
+    export CASSANDRA_KEYSPACE="knolx"
+    export SPARK_MASTER="local"
+    export SPARK_APP_NAME="knolx"
+    export CHECKPOINT_DIR="/tmp/knolx"
 
 2.Start `Structured Streaming Application`
 
