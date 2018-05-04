@@ -3,9 +3,9 @@ package knolx
 import org.apache.log4j.{Level, LogManager}
 
 /**
-  * Copyright Knoldus Software LLP. All rights reserved.
+  * Copyright Knoldus, Inc. 2018. All rights reserved.
   */
-trait KnolXLogger {
+trait KnolLogger {
   private val logger = LogManager.getLogger(this.getClass)
   logger.setLevel(Level.INFO)
 
