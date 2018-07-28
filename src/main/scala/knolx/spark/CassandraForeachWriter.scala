@@ -5,7 +5,7 @@ import knolx.Config.{cassandraHosts, keyspace}
 import org.apache.spark.sql.{ForeachWriter, Row}
 
 /**
-  * Copyright Knoldus Software LLP. All rights reserved.
+  * Copyright Knoldus Inc.. All rights reserved.
   */
 object CassandraForeachWriter extends Serializable {
   val writeToCassandra = new ForeachWriter[Row] {

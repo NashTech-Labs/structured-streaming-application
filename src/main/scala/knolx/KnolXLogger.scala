@@ -3,7 +3,7 @@ package knolx
 import org.apache.log4j.{Level, LogManager}
 
 /**
-  * Copyright Knoldus Software LLP. All rights reserved.
+  * Copyright Knoldus Inc.. All rights reserved.
   */
 trait KnolXLogger {
   private val logger = LogManager.getLogger(this.getClass)

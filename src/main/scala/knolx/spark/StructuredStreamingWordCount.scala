@@ -10,7 +10,7 @@ import org.apache.spark.sql.streaming.OutputMode
 import org.apache.spark.sql.types.StringType
 
 /**
-  * Copyright Knoldus Software LLP. All rights reserved.
+  * Copyright Knoldus Inc.. All rights reserved.
   */
 object StructuredStreamingWordCount extends App with KnolXLogger {
   val cluster = Cluster.builder.addContactPoints(cassandraHosts).build

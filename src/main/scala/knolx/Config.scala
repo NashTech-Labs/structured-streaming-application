@@ -1,7 +1,7 @@
 package knolx
 
 /**
-  * Copyright Knoldus Software LLP. All rights reserved.
+  * Copyright Knoldus Inc.. All rights reserved.
   */
 object Config {
   val bootstrapServer = System.getenv("BOOTSTRAP_SERVERS_CONFIG")
