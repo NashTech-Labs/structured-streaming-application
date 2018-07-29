@@ -30,13 +30,13 @@ object StreamStaticDataGenerator extends App with KnolXLogger {
 
   val companyNames = List("kirloskar", "bajaj", "amul", "dlf", "ebay")
   val orderTypes = List("buy", "sell")
+  val numberOfSharesList = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
   implicit val formats = Serialization.formats(NoTypeHints)
-
   info("Streaming data into Kafka...")
   system.scheduler.schedule(0 seconds, 5 seconds) {
     Random.shuffle(companyNames).headOption.foreach { name =>
-      val stock = Stock(name, Random.nextInt(), Random.shuffle(orderTypes).head)
+      val stock = Stock(name, Random.shuffle(numberOfSharesList).head, Random.shuffle(orderTypes).head)
       producer.send(new ProducerRecord[String, String](topic, write(stock)))
     }
   }
