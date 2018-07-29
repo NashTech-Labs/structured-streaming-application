@@ -3,7 +3,7 @@ package knolx.kafka
 import java.util.Properties
 
 import akka.actor.ActorSystem
-import knolx.Config.{bootstrapServer, topic}
+import knolx.Config._
 import knolx.KnolXLogger
 import knolx.spark.Stock
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerConfig, ProducerRecord}
@@ -19,7 +19,7 @@ import scala.util.Random
 /**
   * Copyright Knoldus Inc.. All rights reserved.
   */
-object StreamStaticDataGenerator extends App with KnolXLogger {
+object StreamStreamDataGenerator extends App with KnolXLogger {
   val system = ActorSystem("DataStreamer")
   val props = new Properties()
   props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer)
@@ -31,13 +31,22 @@ object StreamStaticDataGenerator extends App with KnolXLogger {
   val companyNames = List("kirloskar", "bajaj", "amul", "dlf", "ebay")
   val orderTypes = List("buy", "sell")
   val numberOfSharesList = List(1, 2, 3, 4, 5, 6, 7, 8, 9)
+  val randomCompanyNames = Random.shuffle(companyNames).drop(Random.shuffle((1 to 3).toList).head)
 
   implicit val formats = Serialization.formats(NoTypeHints)
-  info("Streaming data into Kafka...")
+
+  info("Streaming companies listed into Kafka...")
+  system.scheduler.schedule(0 seconds, 20 seconds) {
+    randomCompanyNames.foreach { name =>
+      producer.send(new ProducerRecord[String, String](companiesTopic, name))
+    }
+  }
+
+  info("Streaming stocks data into Kafka...")
   system.scheduler.schedule(0 seconds, 5 seconds) {
     companyNames.foreach { name =>
       val stock = Stock(name, Random.shuffle(numberOfSharesList).head, Random.shuffle(orderTypes).head)
-      producer.send(new ProducerRecord[String, String](topic, write(stock)))
+      producer.send(new ProducerRecord[String, String](stocksTopic, write(stock)))
     }
   }
 }
