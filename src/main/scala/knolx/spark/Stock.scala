@@ -1,3 +1,3 @@
 package knolx.spark
 
-case class Stock(companyName: String, numberOfShares: Int, orderType: String)
+case class Stock(stockName: String, numberOfShares: Int, orderType: String)
